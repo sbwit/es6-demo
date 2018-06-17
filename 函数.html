@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>ES6 demo</title>
+
+	<script type="text/javascript">
+		//let dd = dd || "mmr"; //如果为空用就等于“mmr”，不等于空返回dd 
+
+		//函数的默认参数：
+		function show(a="欢迎使用默认参数",b="show 函数"){
+			console.log(a,b)
+		}
+		show("welcome","sbwit");
+		show("welcome");
+		show();
+
+		//函数默认空值
+		function show2({x,y}={}) {
+			console.log(x,y);	
+		}
+		show2({x:2,y:4});
+		show2();
+
+		//解构函数参数
+		function show3([a,b,c]){
+			console.log(a,b,c);
+		}
+		show3([112,232,21]);
+
+		//...扩展数据  ...展开 
+		function show4(...a){
+			console.log(a);
+			console.log(a.sort()); //排序
+		}
+		show4(1,2,3,6,9);
+		//...扩展数据  收起数组
+		function show5(a,b,c){
+			console.log(a,b,c);
+		}
+		show5(...[123,1232,223]);
+
+		//...扩展数据 Rest  剩余运算符 注意剩余运算符只能放在最后
+		function show6(a,b,...c){
+			console.log(a,b);
+			console.log(c);
+		}
+		show6(1,2,5,7,3,8);
+
+		//复制一份数组
+		let arr = [1,23,22,12,43,65];
+		let arr2 = [...arr];
+		console.log(arr,arr2);
+
+
+	</script>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+ Hello word! .
+</body>
+</html>

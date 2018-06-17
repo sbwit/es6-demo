@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ES6 类 练习</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		.box {
+			width:100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}	
+		.left {
+			left:0;
+		}
+		.right {
+			right: 0;
+		}
+	</style>
+	<script type="text/javascript" src="./class.js" charset="utf-8" >
+		
+	</script>
+</head>
+<body> 
+	<div id="div1" class="box left" >
+		DIV1
+	</div>
+	<div id="div2" class="box right">
+		DIV2	
+	</div>
+
+
+	<script>
+		class Drag {
+			constructor(id) {
+				this.oDiv = document.querySelector(id);
+				this.disX = 0;
+				this.disY = 0;
+				this.init();
+			}
+
+			init() {
+				this.oDiv.onmousedown = function(ev) {
+					this.disX = ev.clientX - this.oDiv.offsetLeft;
+					this.disY = ev.clientY - this.oDiv.offsetTop;
+
+					document.onmousemove = this.fnMove.bind(this);
+					document.onmouseup  = this.fnUp.bind(this);
+					return false;
+				}.bind(this);
+			}
+
+			fnMove(ev) {
+				this.oDiv.style.left  = ev.clientX - this.disX +'px';
+				this.oDiv.style.top = ev.clientY - this.disY + 'px';
+			}
+
+			fnUp(ev) {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+		}
+
+		class LimitDrag extends Drag {
+			fnMove(ev) {
+				super.fnMove(ev);
+				if (this.oDiv.offsetLeft  <= 0) {
+					this.oDiv.offsetLeft = 0 ;
+				}
+			}
+		}
+
+		new Drag("#div1");
+		new LimitDrag("#div2");
+	</script>
+</body>
+</html>

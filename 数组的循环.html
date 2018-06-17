@@ -1,0 +1,90 @@
+</<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	let arr = ["aaaaa","bbb","ccccc","ddddd"];
+
+	arr.forEach((val, index,arr)=>{
+		console.log(val,index,arr);
+	});
+
+	// fro ... of.   keys() 
+	for (let val of arr) {
+		console.log(val);
+	}
+	for (let val of arr.keys()) {
+		console.log(val);
+	}
+	for (let val of arr.entries()) {
+		console.log(val);
+	}
+	for (let [key,val] of arr.entries()) {
+		console.log(key,val);
+	}
+	let arrMap = [
+				{title: "aaaaaa",read:100,hot:true},
+				{title: "bbbbbb",read:100,hot:false},
+				{title: "cccccc",read:100,hot:true},
+				{title: "dddddd",read:100,hot:false}];
+	//做数据交互映射，需要做return  没有return默认返回undefined
+	let  newArr = arrMap.map((item,index,arr)=>{
+		let json ={};
+		json.t = `!!!!${item.title} --------`;
+		json.r = item.read+10;
+		json.hot = item.hot == true && "真！";
+		return json;
+	});
+	console.log("arr.map" );
+ 	console.log(newArr);	
+
+	//过滤 ， 过滤不合格元素, 如果回调函数返回true，就留下来
+	let arrFilter = arrMap.filter((item , index, arr) =>{
+		return item.hot;
+	});
+
+	console.log("arr.arrFilter" );
+	console.log(arrFilter);
+
+	//查询，数组里面某一个元素符合条件返回true；返回 true ，false
+	let bol = arrMap.some((item , index, arr) =>{
+		return item.title == "aaaaaa";
+	});
+
+	console.log("arr.some " + bol);
+	//查询，数组里面所有的元素都要符合条件才返回true
+	let arrVevery = [1,3,5,7,9];
+	var bol2 = arrVevery.every((val, index) => {
+		return val %2 == 1; //判断数组中是否都为奇数
+	});
+	console.log("arr.arrVevery  " + bol2);
+
+
+	///////////////////////////////////////////////////////////
+	//求和, 阶乘
+	let arrReduce = [1,2,3,4,5,6,7,8,9,10];
+	let res = arrReduce.reduce((prev , cur,index )=>{
+		return prev + cur ;
+		//return Math.pow(prev,cur); //阶乘
+	});
+	console.log(" arrReduce " +res);
+
+
+	//扩展运算符   ...
+	let arr3  = [1,2,3];
+	let arr4 = [...arr3];
+	let arr5 = Array.from(arr3);
+
+	
+
+
+
+
+
+	</script>
+	<style type="text/css"></style>
+</head>
+<body>
+
+</body>
+</html>

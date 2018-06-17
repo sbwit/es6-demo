@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>ES6 demo</title>
+
+	<script type="text/javascript">
+		//字符串模板：
+		let name = "sbwit";
+		let age = 19;
+		let job = "码畜";
+		let str = `这个人叫${name}, 年龄${age},工作${job}`
+		console.log(str);
+
+		//字符串查找：
+		let str  = "apple banana asfeefe";
+		//str.indexOf(要找的东西)  返回索引(位置) ， 没有找到返回-1
+		//str.includes(要找的东西) 返回值 true / false
+		//
+		//字符串是否什么开头
+		//str.startsWith("字符串")
+		//字符串是否什么结尾
+		//str.endsWith("字符串") 
+		//重复字符串
+		//str.repeat(重复次数);
+		//填充字符串
+		//str.padStart(整个字符串的长度, 填充字符串);  //往前填充
+		//str.padEnd(整个字符串的长度, 填充字符串);   //往后填充
+		console.log(str.repeat(10)）;
+		console.log(str.indexOf("apple"));
+		console.log(str.includes("apple"));
+
+
+	</script>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+ Hello word! .
+</body>
+</html>
