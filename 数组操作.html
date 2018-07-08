@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ES6 练习</title>
+    <link rel="stylesheet" href="">
+
+</head>
+<body>
+<script>
+    window.onload = function () {
+        let ali = document.querySelectorAll('ul li');
+        let arrLi = [...ali];  //转换成数组
+        arrLi.pop();
+
+        arrLi.push("添加新的元素");//添加新的元素
+        console.log(arrLi);
+
+
+        //Array.from:
+        //作用： 把类数组（获取一组元素、arguments...） ,具备length属性 都可以转
+        let arrLi2 = Array.from(ali);
+
+        function show() {
+            let args = Array.from(arguments);
+            console.log(args)
+        }
+
+        show(1, 23, 5, 67, 9)
+
+        let json = {0: "apple", 1: 'banana', 2: "orange", length: 3};
+        console.log("Array.form", Array.from(json));
+
+
+        // Array.of();
+        //作用： 把一组元素转为数组
+        console.log("Array.of", Array.of('123123', 'aaaa', 'bbbb', 'ssss'));
+
+        //find()  作用： 找出第一个符合要求的元素, 如果没有找到， 返回undefined
+        let arr = [23, 89, 110, 80, 100]
+        let temp = arr.find((val, index) => {
+            return val > 100
+        })
+        console.log("find", temp);
+        //findIndex()  作用： 找出第一个符合要求的下标, 如果没有找到 -1
+        let temp2 = arr.findIndex((val, index) => {
+            return val > 100
+        })
+        console.log("findIndex", temp2);
+
+        //fill()  作用： 填充
+        let temp3 = new Array(10);
+        temp3.fill('默认值', 1, 3);
+        console.log("fill", temp3);
+
+        // includes() 作用： 包含  存在true 不存在false
+        let temp4 = ["apple", 'banana', "orange"]
+        console.log("includes", temp4.includes("banana"))
+
+
+    }
+
+
+</script>
+<ul>
+    <li>123123</li>
+    <li>234234</li>
+    <li>bbbb</li>
+    <li>sqwerqwer</li>
+</ul>
+</body>
+
+</html>
